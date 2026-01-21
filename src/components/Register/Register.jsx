@@ -1,9 +1,11 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
+    
+  const location=useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { user, setUser, createUser, signInWithGoogle, updateProfile } = use(AuthContext);
@@ -33,7 +35,7 @@ const Register = () => {
         updateProfile({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            navigate("/");
+            navigate(`${location.state? location.state:"/"}`);
           })
           .catch((err) => {
             setUser(user);
@@ -54,6 +56,7 @@ const Register = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("You registered successfully!");
+          navigate(`${location.state? location.state:"/"}`);
           e.target.reset();
         }
       });
@@ -64,6 +67,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         toast.success("You logged in successfully!");
+        navigate(`${location.state? location.state:"/"}`);
       })
       .catch((err) => {
         toast.error(err);

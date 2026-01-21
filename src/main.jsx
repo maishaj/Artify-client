@@ -10,7 +10,10 @@ import AuthProvider from "./contexts/AuthProvider.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import { ToastContainer } from "react-toastify";
-
+import AddArtwork from "./components/AddArtwork/AddArtwork.jsx";
+import MyGallery from "./components/MyGallery/MyGallery.jsx";
+import MyFavourites from "./components/MyFavourites/MyFavourites.jsx";
+import PrivateRoute from "../src/Routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,13 +32,37 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>,
   },
+  {
+    path: "/addArtwork",
+    element: (
+      <PrivateRoute>
+        <AddArtwork></AddArtwork>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/myGallery",
+    element: (
+      <PrivateRoute>
+        <MyGallery></MyGallery>,
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/myFavourites",
+    element: (
+      <PrivateRoute>
+        <MyFavourites></MyFavourites>,
+      </PrivateRoute>
+    ),
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
     </AuthProvider>
   </StrictMode>,
 );

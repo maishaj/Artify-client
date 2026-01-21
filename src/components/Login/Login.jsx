@@ -1,10 +1,13 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle } = use(AuthContext);
+  const {user, setUser, signInUser, signInWithGoogle, updateProfile } = use(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,8 +20,16 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         toast.success("You logged in successfully!");
-
+        navigate(`${location.state ? location.state : "/"}`);
         e.target.reset();
+        updateProfile({ displayName: user.displayName, photoURL: user.photoURL })
+          .then(() => {
+            setUser({ ...user, displayName: user.displayName, photoURL: user.photoURL});
+            navigate(`${location.state? location.state:"/"}`);
+          })
+          .catch((err) => {
+            setUser(user);
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -32,6 +43,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("You logged in successfully!");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((err) => {
         toast.error(err);
