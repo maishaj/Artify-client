@@ -14,6 +14,7 @@ import AddArtwork from "./components/AddArtwork/AddArtwork.jsx";
 import MyGallery from "./components/MyGallery/MyGallery.jsx";
 import MyFavourites from "./components/MyFavourites/MyFavourites.jsx";
 import PrivateRoute from "../src/Routes/PrivateRoute.jsx";
+import ErrorPage from "./layouts/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
   },
+  {
+    path:"/*",
+    element:<ErrorPage></ErrorPage>
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
