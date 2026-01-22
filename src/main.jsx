@@ -15,6 +15,7 @@ import MyGallery from "./components/MyGallery/MyGallery.jsx";
 import MyFavourites from "./components/MyFavourites/MyFavourites.jsx";
 import PrivateRoute from "../src/Routes/PrivateRoute.jsx";
 import ErrorPage from "./layouts/ErrorPage.jsx";
+import ExploreArtworkLayout from "./layouts/ExploreArtworkLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
     element: <Home></Home>,
   },
   {
-    path: "/exploreArtworks",
-    element: <ExploreArtworks></ExploreArtworks>,
+    path:"/exploreArtworks",
+    element:<ExploreArtworkLayout></ExploreArtworkLayout>
   },
   {
     path: "/login",
