@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ArtWorkCard = ({artwork}) => {
 
@@ -15,7 +16,7 @@ const ArtWorkCard = ({artwork}) => {
                     <p>{artwork.artistName}</p>
                     <p>Category:  {artwork.category}</p>
                     <div className="card-actions justify-end">
-                    <button className="my-btn my-btn:hover btn btn-primary mx-auto">View Details</button>
+                    <Link to={`/artworkDetails/${artwork._id}`} className="my-btn my-btn:hover btn btn-primary mx-auto">View Details</Link>
                     </div>
                 </div>
             </div>

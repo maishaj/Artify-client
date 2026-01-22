@@ -17,6 +17,7 @@ import PrivateRoute from "../src/Routes/PrivateRoute.jsx";
 import ErrorPage from "./layouts/ErrorPage.jsx";
 import ExploreArtworkLayout from "./layouts/ExploreArtworkLayout.jsx";
 import AddArtworkLayout from "./layouts/AddArtworkLayout.jsx";
+import ArtworkDetailsLayout from "./layouts/ArtworkDetailsLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
     element: <Home></Home>,
   },
   {
-    path:"/exploreArtworks",
-    element:<ExploreArtworkLayout></ExploreArtworkLayout>
+    path: "/exploreArtworks",
+    element: <ExploreArtworkLayout></ExploreArtworkLayout>,
   },
   {
     path: "/login",
@@ -40,6 +41,15 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <AddArtworkLayout></AddArtworkLayout>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/artworkDetails/:id",
+    loader:({params})=>fetch(`http://localhost:3000/artwork/${params.id}`),
+    element: (
+      <PrivateRoute>
+        <ArtworkDetailsLayout></ArtworkDetailsLayout>
       </PrivateRoute>
     ),
   },
@@ -60,9 +70,9 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path:"/*",
-    element:<ErrorPage></ErrorPage>
-  }
+    path: "/*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

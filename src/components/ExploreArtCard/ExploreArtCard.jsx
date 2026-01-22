@@ -1,5 +1,6 @@
 import React from 'react';
-import like from '../../assets/like.png';
+import like from '../../assets/realLike.png';
+import { Link } from 'react-router';
 
 const ExploreArtCard = ({artwork}) => {
     return (
@@ -19,7 +20,7 @@ const ExploreArtCard = ({artwork}) => {
                         <p>{artwork.likesCount}</p>
                     </div>
                     <div className="card-actions justify-end">
-                    <button className="my-btn my-btn:hover btn btn-primary mx-auto">View Details</button>
+                    <Link to={`/artworkDetails/${artwork._id}`} className="my-btn my-btn:hover btn btn-primary mx-auto">View Details</Link>
                     </div>
                 </div>
             </div>
