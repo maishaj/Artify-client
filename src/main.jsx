@@ -16,6 +16,7 @@ import MyFavourites from "./components/MyFavourites/MyFavourites.jsx";
 import PrivateRoute from "../src/Routes/PrivateRoute.jsx";
 import ErrorPage from "./layouts/ErrorPage.jsx";
 import ExploreArtworkLayout from "./layouts/ExploreArtworkLayout.jsx";
+import AddArtworkLayout from "./layouts/AddArtworkLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     path: "/addArtwork",
     element: (
       <PrivateRoute>
-        <AddArtwork></AddArtwork>
+        <AddArtworkLayout></AddArtworkLayout>
       </PrivateRoute>
     ),
   },

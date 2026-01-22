@@ -4,7 +4,7 @@ import like from '../../assets/like.png';
 const ExploreArtCard = ({artwork}) => {
     return (
         <div className='rounded-2xl p-2'>
-            <div className="card bg-base-100 w-full shadow-sm">
+            <div className="card bg-base-100 w-full h-full shadow-sm">
                 <div>
                     <img
                     src={artwork.image}
