@@ -41,7 +41,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Artify</a>
+                    <a className="btn btn-ghost text-xl font-bold">Artify</a>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
