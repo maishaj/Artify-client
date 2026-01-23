@@ -1,11 +1,14 @@
 import React, { use, useState } from "react";
 import ExploreArtCard from "../ExploreArtCard/ExploreArtCard";
+import { AuthContext } from "../../contexts/AuthContext";
+import Loading from '../Loading/Loading';
 
 const ExploreArtworks = ({exploreArtworkPromise}) => {
   
   const [artworks, setArtworks] = useState([]);
   const [searchQuery,setSearchQuery]=useState("");
   const [initialized, setInitialized] = useState(false);
+
 
   if(!initialized)
   {
@@ -51,7 +54,7 @@ const ExploreArtworks = ({exploreArtworkPromise}) => {
        </div>
        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:gap-10 lg:gap-10">
           {
-           artworks.map(artwork=><ExploreArtCard artwork={artwork}></ExploreArtCard>)
+           artworks.map(artwork=><ExploreArtCard key={artwork._id} artwork={artwork}></ExploreArtCard>)
           }
        </div>
     </div>
