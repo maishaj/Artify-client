@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import ExploreArtCard from '../ExploreArtCard/ExploreArtCard';
+import MyFavouriteCard from '../MyFavouriteCard/MyFavouriteCard';
 
 const MyFavourites = () => {
 
@@ -15,12 +15,19 @@ const MyFavourites = () => {
         })
     },[user.email])
 
-    console.log(fav);
+    const removeFromUI=(artworkId)=>{
+        const remaining=fav.filter(fv=>fv._id!==artworkId);
+        setFav(remaining);
+    }
+
     return (
-        <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 w-11/12 mx-auto m-10'>
-            {
-                fav.map(fv=><ExploreArtCard key={fv._id} artwork={fv}></ExploreArtCard>)
-            }
+        <div>
+            <h1 className='text-2xl text-center font-bold m-10'>Favourite Artworks</h1>
+            <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 w-11/12 mx-auto m-10'>
+                {
+                    fav.map(fv=><MyFavouriteCard key={fv._id} artwork={fv} fav={fav} onRemove={removeFromUI}></MyFavouriteCard>)
+                }
+            </div>
         </div>
     );
 };

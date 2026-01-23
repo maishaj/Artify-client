@@ -74,5 +74,3 @@ const ArtworkDetails = () => {
 };
 
 export default ArtworkDetails;
-
-//max-w-sm 
