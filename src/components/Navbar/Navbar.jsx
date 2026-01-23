@@ -1,6 +1,8 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
+import { Fade } from 'react-awesome-reveal';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
 
@@ -41,7 +43,19 @@ const Navbar = () => {
                         {links}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl font-bold">Artify</a>
+                    <div className='z-10'>
+                        <Fade cascade damping={1}>
+                            <a
+                            className="btn btn-ghost text-xl font-bold"
+                            data-tooltip-id="logo-tooltip"
+                            data-tooltip-content="Welcome to Artify 🎨"
+                            >
+                            Artify
+                            </a>
+                        </Fade>
+                    <Tooltip id="logo-tooltip" />
+                    </div>
+
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
