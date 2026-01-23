@@ -4,10 +4,12 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const {user, setUser, signInUser, signInWithGoogle, updateProfile } = use(AuthContext);
+  const { setUser, signInUser, signInWithGoogle, updateProfile } =
+    use(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,15 +19,21 @@ const Login = () => {
     console.log(email, password);
 
     signInUser(email, password)
-      .then((userCredential) => {
+      .then(async(userCredential) => {
         const user = userCredential.user;
+        navigate(from, { replace: true });
         toast.success("You logged in successfully!");
-        navigate(`${location.state ? location.state : "/"}`);
         e.target.reset();
-        updateProfile({ displayName: user.displayName, photoURL: user.photoURL })
+        await updateProfile({
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        })
           .then(() => {
-            setUser({ ...user, displayName: user.displayName, photoURL: user.photoURL});
-            navigate(`${location.state? location.state:"/"}`);
+            setUser({
+              ...user,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            });
           })
           .catch((err) => {
             setUser(user);
@@ -39,11 +47,12 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    signInWithGoogle()
+       signInWithGoogle()
       .then((result) => {
         const user = result.user;
+        // navigate(`${location.state ? location.state : "/"}`);
+        navigate(from, { replace: true });
         toast.success("You logged in successfully!");
-        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((err) => {
         toast.error(err);

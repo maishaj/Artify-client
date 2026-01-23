@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
   //Google Login
   const signInWithGoogle = () => {
     setloading(true);
-    signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider);
   };
 
   //update a user's profile

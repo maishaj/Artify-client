@@ -1,16 +1,59 @@
-# React + Vite
+Artify – A Creative Artwork Showcase Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Artify is a modern, single-page online art-sharing platform designed for artists to upload, display, and manage their creative works. The platform fosters a community where art lovers can explore diverse galleries, curate their personal favorites, and interact with artists through appreciation systems.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Site URL: [Insert Your Live Site URL Here] 
 
-## React Compiler
+🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Artist Portfolio Management: Logged-in users can easily add, update, and delete their own artworks through a personalized gallery.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Search and Discovery: Explore a vast collection of public artworks with built-in search functionality by title or artist name, and filter works by category.
+
+
+Engagement System: A dynamic "Like" system using MongoDB operators to track artwork popularity and a "Favorites" list for personal curation.
+
+
+Responsive Design: A fully mobile, tablet, and desktop-responsive interface ensuring a seamless experience across all devices.
+
+🛠️ Technologies Used
+
+Frontend: React.js, React Router, Tailwind CSS.
+
+Backend: Node.js, Express.js.
+
+Database: MongoDB.
+
+
+Authentication: Firebase Authentication (Email/Password & Google Login).
+
+
+Deployment: Vercel (For both Client and Server).
+
+
+🧱 Layout Structure
+Home Page
+
+Banner/Slider: Highlighting trending artists and featured art.
+
+
+Featured Artworks: Displays the 6 most recent artworks sorted dynamically from the database.
+
+
+Extra Sections: Includes 'Top Artists of the Week' and 'Community Highlights' to keep users engaged.
+
+Authentication
+
+Login & Register: Secure entry points with password validation (uppercase, lowercase, minimum 6 characters) and Google OAuth options.
+
+Private Routes
+
+Add Artwork: A dedicated form for artists to contribute new pieces to the platform.
+
+
+My Gallery: A management hub for users to view, update, or remove their uploaded content.
+
+
+My Favorites: A curated collection of artworks the user has liked or saved.

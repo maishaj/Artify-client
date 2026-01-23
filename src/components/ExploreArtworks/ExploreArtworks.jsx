@@ -49,7 +49,7 @@ const ExploreArtworks = ({exploreArtworkPromise}) => {
   
   return (
     <div className="w-11/12 mx-auto m-10">
-        <div className="flex justify-center items-center gap-10 mb-10">
+        <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center gap-10 mb-10">
           <div>
               <select className="input" value={categoryFilter} onChange={handleCategoryFilter}>
               <option value="">All Categories</option>

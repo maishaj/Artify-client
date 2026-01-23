@@ -7,10 +7,12 @@ const Register = () => {
     
   const location=useLocation();
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const [error, setError] = useState(null);
   const { user, setUser, createUser, signInWithGoogle, updateProfile } = use(AuthContext);
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     const name = e.target.name.value;
@@ -29,13 +31,12 @@ const Register = () => {
 
     const newUser = { name, email, photo };
 
-    createUser(email, password)
-      .then((userCred) => {
+    await createUser(email, password)
+      .then(async (userCred) => {
         const user = userCred.user;
-        updateProfile({ displayName: name, photoURL: photo })
+        await updateProfile({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            navigate(`${location.state? location.state:"/"}`);
           })
           .catch((err) => {
             setUser(user);
@@ -56,18 +57,19 @@ const Register = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("You registered successfully!");
-          navigate(`${location.state? location.state:"/"}`);
+          navigate(from, { replace: true });
           e.target.reset();
         }
       });
+      navigate(from, { replace: true });
   };
 
-  const handleGoogleLogin = () => {
-    signInWithGoogle()
+  const handleGoogleLogin =async() => {
+    await signInWithGoogle()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         toast.success("You logged in successfully!");
-        navigate(`${location.state? location.state:"/"}`);
       })
       .catch((err) => {
         toast.error(err);
