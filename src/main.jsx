@@ -18,6 +18,8 @@ import ErrorPage from "./layouts/ErrorPage.jsx";
 import ExploreArtworkLayout from "./layouts/ExploreArtworkLayout.jsx";
 import AddArtworkLayout from "./layouts/AddArtworkLayout.jsx";
 import ArtworkDetailsLayout from "./layouts/ArtworkDetailsLayout.jsx";
+import MyGalleryLayout from "./layouts/MyGalleryLayout.jsx";
+import MyFavouritesLayout from "./layouts/MyFavouritesLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +59,7 @@ const router = createBrowserRouter([
     path: "/myGallery",
     element: (
       <PrivateRoute>
-        <MyGallery></MyGallery>,
+        <MyGalleryLayout></MyGalleryLayout>,
       </PrivateRoute>
     ),
   },
@@ -65,7 +67,7 @@ const router = createBrowserRouter([
     path: "/myFavourites",
     element: (
       <PrivateRoute>
-        <MyFavourites></MyFavourites>,
+        <MyFavouritesLayout></MyFavouritesLayout>,
       </PrivateRoute>
     ),
   },

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import favImg from '../../assets/like.png';
 import likeImg from '../../assets/realLike.png';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const ArtworkDetails = () => {
 
     const artwork=useLoaderData();
+    const {user}=use(AuthContext);
+
     const [like,setLike]=useState(artwork.likesCount);
     
     const handleLikeCounts=()=>{
@@ -30,7 +33,7 @@ const ArtworkDetails = () => {
                 'Content-Type':"application/json",
             },
             body:JSON.stringify({
-                userEmail:artwork.email,
+                userEmail:user.email,
                 artworkId:artwork._id
             })
         })
