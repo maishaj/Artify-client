@@ -34,7 +34,7 @@ const AddArtwork = () => {
       createdAt: new Date(),
     };
 
-    fetch("http://localhost:3000/exploreArtworks", {
+    fetch("https://artify-server-one.vercel.app/exploreArtworks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

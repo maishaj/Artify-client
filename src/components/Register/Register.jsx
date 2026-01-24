@@ -4,13 +4,13 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
-    
-  const location=useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
   const [error, setError] = useState(null);
-  const { user, setUser, createUser, signInWithGoogle, updateProfile } = use(AuthContext);
+  const { user, setUser, createUser, signInWithGoogle, updateProfile } =
+    use(AuthContext);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const Register = () => {
         toast.error(err);
       });
 
-    fetch("http://localhost:3000/users", {
+    fetch("https://artify-server-one.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,10 +61,10 @@ const Register = () => {
           e.target.reset();
         }
       });
-      navigate(from, { replace: true });
+    navigate(from, { replace: true });
   };
 
-  const handleGoogleLogin =async() => {
+  const handleGoogleLogin = async () => {
     await signInWithGoogle()
       .then((result) => {
         const user = result.user;

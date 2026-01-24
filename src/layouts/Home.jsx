@@ -7,12 +7,12 @@ import TopArtists from "../components/TopArtists/TopArtists";
 import CommunityHighlights from "../components/Community Highlights/CommunityHighlights";
 
 const Home = () => {
-  const artworkPromise = fetch("http://localhost:3000/artwork").then((res) =>
-    res.json(),
-  );
-  const artistPromise = fetch("http://localhost:3000/artists").then((res) =>
-    res.json(),
-  );
+  const artworkPromise = fetch(
+    "https://artify-server-one.vercel.app/artwork",
+  ).then((res) => res.json());
+  const artistPromise = fetch(
+    "https://artify-server-one.vercel.app/artists",
+  ).then((res) => res.json());
 
   return (
     <div>

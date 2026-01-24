@@ -16,8 +16,6 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(email, password);
-
     signInUser(email, password)
       .then(async(userCredential) => {
         const user = userCredential.user;

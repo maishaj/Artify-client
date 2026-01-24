@@ -48,7 +48,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/artworkDetails/:id",
-    loader:({params})=>fetch(`http://localhost:3000/artwork/${params.id}`),
+    loader: ({ params }) =>
+      fetch(`https://artify-server-one.vercel.app/artwork/${params.id}`),
     element: (
       <PrivateRoute>
         <ArtworkDetailsLayout></ArtworkDetailsLayout>

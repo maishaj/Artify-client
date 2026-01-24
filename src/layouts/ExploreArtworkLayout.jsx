@@ -5,13 +5,17 @@ import ExploreArtworks from "../components/ExploreArtworks/ExploreArtworks";
 import Loading from "../components/Loading/Loading";
 
 const ExploreArtworkLayout = () => {
-  const exploreArtworkPromise=fetch('http://localhost:3000/exploreArtworks').then(res=>res.json());
+  const exploreArtworkPromise = fetch(
+    "https://artify-server-one.vercel.app/exploreArtworks",
+  ).then((res) => res.json());
 
   return (
     <div>
       <Navbar></Navbar>
       <Suspense fallback={<Loading></Loading>}>
-        <ExploreArtworks exploreArtworkPromise={exploreArtworkPromise}></ExploreArtworks>
+        <ExploreArtworks
+          exploreArtworkPromise={exploreArtworkPromise}
+        ></ExploreArtworks>
       </Suspense>
       <Footer></Footer>
     </div>
