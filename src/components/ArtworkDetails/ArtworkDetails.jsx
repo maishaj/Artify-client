@@ -15,15 +15,23 @@ const ArtworkDetails = () => {
     const handleLikeCounts=()=>{
         fetch(`http://localhost:3000/exploreArtworks/like/${artwork._id}`,{
             method:"PATCH",
+            headers: {
+            "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                userEmail: user.email
+            })
         })
         .then(res=>res.json())
         .then((data)=>{
-            if(data.modifiedCount)
-            {
-                toast.success("You liked this content!");
-                setLike(like+1);
+            if (data.message === "Already liked") {
+            toast.info("You already liked this");
+            } 
+            else if (data.modifiedCount) {
+            toast.success("You liked this content");
+            setLike(like + 1);
             }
-        })
+            })
     }
 
     const handleAddToFavourites=()=>{
@@ -39,9 +47,11 @@ const ArtworkDetails = () => {
         })
         .then(res=>res.json())
         .then((data)=>{
-            if(data.insertedId){
-                toast.success("Content is added to your favourite list!");
-            }
+             if (data.message === "Already in favourites") {
+            toast.info("Already added to favourites");
+            } else {
+            toast.success("Added to favourites");
+            }   
         })
     }
     

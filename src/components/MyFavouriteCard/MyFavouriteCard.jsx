@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import like from '../../assets/like.png';
 import { Link } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -9,7 +9,6 @@ const MyFavouriteCard = ({artwork,onRemove}) => {
     const {user}=use(AuthContext);
 
     const handleRemoveFav=()=>{
-        console.log("hello remove")
         fetch(`http://localhost:3000/favourites/${artwork._id}?userEmail=${user.email}`,{
             method:"DELETE"
         })
