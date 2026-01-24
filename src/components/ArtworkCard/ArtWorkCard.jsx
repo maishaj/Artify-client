@@ -5,7 +5,7 @@ const ArtWorkCard = ({artwork}) => {
 
     return (
         <div>
-            <div className="card bg-base-100 w-full shadow-sm">
+            <div className="card bg-base-100 w-full shadow-sm h-full">
                 <div>
                     <img
                     src={artwork.image}
