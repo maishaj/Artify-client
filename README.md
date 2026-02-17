@@ -3,6 +3,8 @@
 **Artify** is a modern, single-page online art-sharing platform designed for artists to upload, display, and manage their creative works. The platform fosters a community where art lovers can explore diverse galleries, curate their personal favorites, and interact with artists through appreciation systems.
 
 🔗 **[Live Site URL](https://artify-4a56d.web.app/)**
+📂 **[Client Repository](https://github.com/maishaj/Artify-client)**
+📂 **[Server Repository](https://github.com/maishaj/Artify-server)**
 
 ---
 
