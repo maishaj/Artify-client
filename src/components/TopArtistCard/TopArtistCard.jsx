@@ -4,7 +4,7 @@ const TopArtistCard = ({artist}) => {
 
     return (
         <div>
-            <div className="card bg-base-100 w-full shadow-sm">
+            <div className="card bg-base-100 w-full shadow-sm h-full">
                 <div>
                     <img className="w-full h-full object-cover"
                     src={artist.photo}
