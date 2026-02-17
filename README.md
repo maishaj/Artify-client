@@ -38,6 +38,9 @@
 ### 🔐 Authentication
 * **Login & Register:** Secure entry points with password validation (uppercase, lowercase, minimum 6 characters) and Google OAuth options.
 
+### 🌍 Public Routes (Accessible to everyone)
+* **Explore Artworks:** A dedicated page to browse the full collection of public artworks with search and filtering capabilities.
+
 ### 🛡️ Private Routes (User Only)
 * **Add Artwork:** A dedicated form for artists to contribute new pieces to the platform.
 * **My Gallery:** A management hub for users to view, update, or remove their uploaded content.
