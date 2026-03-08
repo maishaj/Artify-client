@@ -1,51 +1,118 @@
-# 🎨 Artify – A Creative Artwork Showcase Platform
+# 🎨 Artify – Client
 
-**Artify** is a modern, single-page online art-sharing platform designed for artists to upload, display, and manage their creative works. The platform fosters a community where art lovers can explore diverse galleries, curate their personal favorites, and interact with artists through appreciation systems.
+## 📌 Project Overview
 
-🔗 **[Live Site URL](https://artify-4a56d.web.app/)**
-📂 **[Client Repository](https://github.com/maishaj/Artify-client)**
-📂 **[Server Repository](https://github.com/maishaj/Artify-server)**
-
----
-
-## 🚀 Features
-
-* **Artist Portfolio Management:** Logged-in users can easily add, update, and delete their own artworks through a personalized gallery.
-* **Search and Discovery:** Explore a vast collection of public artworks with built-in search functionality by title or artist name, and filter works by category.
-* **Engagement System:** A dynamic "Like" system using MongoDB operators to track artwork popularity and a "Favorites" list for personal curation.
-* **Responsive Design:** A fully mobile, tablet, and desktop-responsive interface ensuring a seamless experience across all devices.
+**Artify** is a modern, single-page online art-sharing platform designed for artists to upload, display, and manage their creative works.  
+The platform fosters a community where art lovers can explore diverse galleries, curate their personal favorites, and interact with artists through appreciation systems.
 
 ---
 
-## 🛠️ Technologies Used
+## 🔗 Project Links
 
-| Layer | Technology |
-| :--- | :--- |
-| **Frontend** | React.js, React Router, Tailwind CSS |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB |
-| **Authentication** | Firebase Authentication (Email/Password & Google Login) |
-| **Hosting (Frontend)** | **Firebase Hosting** |
-| **Hosting (Backend)** | **Vercel** |
+- 🌐 **Live Site:** https://artify-4a56d.web.app/  
+- 💻 **Client Repository:** https://github.com/maishaj/Artify-client  
+- 💻 **Server Repository:** https://github.com/maishaj/Artify-server  
 
 ---
 
-## 🧱 Layout Structure
+# ✨ Key Features
 
-### 🏠 Home Page
-* **Banner/Slider:** Highlighting trending artists and featured art.
-* **Featured Artworks:** Displays the 6 most recent artworks sorted dynamically from the database.
-* **Extra Sections:** Includes 'Top Artists of the Week' and 'Community Highlights' to keep users engaged.
+### 👤 Authentication
+- Secure Email & Password login  
+- Google OAuth login  
+- Password validation 
+- Protected routes for registered users  
 
-### 🔐 Authentication
-* **Login & Register:** Secure entry points with password validation (uppercase, lowercase, minimum 6 characters) and Google OAuth options.
+### 🖼️ Artwork Marketplace
+- Browse artworks by title, artist, or category  
+- Search and filter artworks  
+- View detailed artwork information  
 
-### 🌍 Public Routes (Accessible to everyone)
-* **Explore Artworks:** A dedicated page to browse the full collection of public artworks with search and filtering capabilities.
+### 👨‍🎨 Artist Portfolio Management
+- Add new artworks  
+- Update existing artworks  
+- Delete artworks  
+- Manage your personal gallery  
 
-### 🛡️ Private Routes (User Only)
-* **Add Artwork:** A dedicated form for artists to contribute new pieces to the platform.
-* **My Gallery:** A management hub for users to view, update, or remove their uploaded content.
-* **My Favorites:** A curated collection of artworks the user has liked or saved.
+### ❤️ Engagement System
+- Like artworks to show appreciation  
+- Add artworks to "Favorites" for personal curation  
+
+### 📱 Responsive Design
+- Fully mobile, tablet, and desktop-friendly UI  
+- Smooth user experience across all devices  
+---
+
+# 🛠 Main Technologies
+
+- **Frontend:** React.js, React Router, Tailwind CSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **Authentication:** Firebase Authentication (Email/Password & Google Login)  
+- **Hosting (Frontend):** Firebase Hosting  
+- **Hosting (Backend):** Vercel  
 
 ---
+
+# 📦 Dependencies
+
+Main dependencies used:
+
+- firebase  
+- sweetalert2  
+- react-icons  
+- daisyui  
+- tailwindcss  
+
+---
+
+# ⚙️ Setup & Installation
+
+Follow these steps to run the project locally.
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/maishaj/The-lost-archive.git
+cd The-lost-archive
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3️⃣ Environment Configuration
+
+Create a **`.env.local`** file in the root directory and add the following variables:
+
+```env
+VITE_APIKEY: your_api_key
+VITE_AUTHDOMAIN: your_auth_domain
+VITE_PROJECTID: your_project_id
+VITE_STORAGEBUCKET: your_storage_bucket
+VITE_MESSAGINGSENDERID: your_messaging_senderid
+VITE_APPID: your_app_id
+```
+
+---
+
+## 4️⃣ Run the Development Server
+
+```bash
+npm run dev
+```
+
+Then open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+---
+
